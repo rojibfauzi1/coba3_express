@@ -7,6 +7,9 @@ var app = express();
 //port server
 app.set('port',process.env.PORT || 9999);
 
+//bodyparser
+app.use(bodyparser());
+
 //view engine
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
