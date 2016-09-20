@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Template engine EJS</title>
+</head>
+<body>
+	<h2><%= title %></h2>
+
+	<ul>
+		<% for (var i = 0; i < items.length; i++) { %>
+			<li><%= items[i].name %></li>
+		<% } %>
+	</ul>
+
+	<form action="/add" method="POST">
+		<input  type="text" name="newItem"/>
+		<input type="submit" />
+	</form>
+</body>
+</html>
