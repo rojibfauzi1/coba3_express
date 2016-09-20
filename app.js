@@ -5,7 +5,7 @@ var bodyparser = require("body-parser");
 
 var app = express();
 //port server
-app.set('port',process.env.PORT || 9999);
+app.set('port',process.env.PORT || 9999); //process.env == akan mengatur otomatis portnya jika sudah di upload
 
 //bodyparser
 app.use(bodyparser.json());
@@ -19,29 +19,8 @@ app.set('views',path.join(__dirname,'views'));
 app.use("/bootstrap",express.static(__dirname+'/bower_components/bootstrap/dist'));
 app.use(express.static(path.join(__dirname+'/bower_components/')));
 
-var todoItems = [
-			{id:1,name: 'zainn'},
-			{id:2,name: 'rojib'},
-			{id:3,name: 'fauzi'}
-		];
-
 //routing 
-app.get("/",function(req,res){
-	res.render('index',{
-		title : 'apps expressjs',
-		items : todoItems
-	}); //merender view engine 
-});
-
-app.post("/add",function(req,res){
-	var newList = req.body.newList;
-
-	todoItems.push({
-		id: todoItems.length+1,
-		name: newList
-	});
-	res.redirect("/");
-});
+app.use(require('./todo'));
 
 app.listen(app.get('port'),function(req,res){
 	console.log("Server is running on port "+app.get('port'));
