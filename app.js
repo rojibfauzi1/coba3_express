@@ -15,6 +15,10 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
 
+//asset
+app.use("/bootstrap",express.static(__dirname+'/bower_components/bootstrap/dist'));
+app.use(express.static(path.join(__dirname+'/bower_components/')));
+
 var todoItems = [
 			{id:1,name: 'zainn'},
 			{id:2,name: 'rojib'},
