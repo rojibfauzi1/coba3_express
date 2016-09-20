@@ -1,0 +1,26 @@
+From 96c69460b57d2c3a9866d23bd12b30f917bcba22 Mon Sep 17 00:00:00 2001
+From: rojibfauzi1 <rojibfauzi@gmail.com>
+Date: Tue, 20 Sep 2016 18:22:50 +0700
+Subject: [PATCH] body parser
+
+---
+ app.js | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/app.js b/app.js
+index 4365e11..33fe9da 100644
+--- a/app.js
++++ b/app.js
+@@ -7,6 +7,9 @@ var app = express();
+ //port server
+ app.set('port',process.env.PORT || 9999);
+ 
++//bodyparser
++app.use(bodyparser());
++
+ //view engine
+ app.set('view engine','ejs');
+ app.set('views',path.join(__dirname,'views'));
+-- 
+2.7.4
+
